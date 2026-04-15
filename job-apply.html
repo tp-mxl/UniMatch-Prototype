@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            margin: 25px 0 10px 0; 
+            font-size: 16px; 
+            color: var(--text-main);
+        }
+        
+        .bullet-list {
+            color: var(--text-muted); 
+            margin-left: 20px; 
+            line-height: 1.8;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <h2>UniMatch</h2>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="student-tracker.html">Application Tracker</a>
+            <a href="job-apply.html" class="active">Internship Search</a>
+            <a href="student-profile.html">Profile & Documents</a>
+            <a href="notifications.html">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+        </nav>
+
+        <main class="main-content">
+            <header style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <h1 style="margin: 0 0 5px 0;">Software Engineering Intern</h1>
+                    <p style="color: var(--text-muted); margin: 0;">Gofive Company Limited • On-site</p>
+                </div>
+                <span class="badge" style="background: #D1FAE5; color: #065F46; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 14px;">Actively Hiring</span>
+            </header>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h2 style="margin-top: 0; margin-bottom: 15px;">Role Overview</h2>
+                    <p style="color: var(--text-muted); line-height: 1.7; margin-top: 0;">
+                        We are looking for a passionate intern to join our backend development team. You will work alongside senior engineers utilizing Node.js and PostgreSQL to build scalable API architectures. You'll get hands-on experience solving real-world performance challenges and deploying code to production.
+                    </p>
+                    
+                    <h3 class="section-title">Key Responsibilities:</h3>
+                    <ul class="bullet-list">
+                        <li>Design, develop, and test RESTful APIs for our core platform.</li>
+                        <li>Collaborate with frontend developers to integrate user-facing elements.</li>
+                        <li>Participate in agile sprint planning and daily stand-ups.</li>
+                    </ul>
+
+                    <h3 class="section-title">Minimum Requirements:</h3>
+                    <ul class="bullet-list">
+                        <li>Currently pursuing a degree in Computer Science or related field.</li>
+                        <li>Minimum GPA: 3.0</li>
+                        <li>Solid foundation in JavaScript/TypeScript and database concepts.</li>
+                        <li>Strong problem-solving skills and eagerness to learn.</li>
+                    </ul>
+                    
+                    <h3 class="section-title">Perks & Benefits:</h3>
+                    <ul class="bullet-list" style="margin-bottom: 0;">
+                        <li>1-on-1 mentorship from senior engineers.</li>
+                        <li>Monthly allowance of 15,000 THB + equipment provided.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background-color: #F8FAFC; border: 2px dashed #CBD5E1; height: fit-content;">
+                    <h2 style="margin-top: 0; margin-bottom: 10px;">Frictionless Application</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 14px; margin-top: 0;">Review and submit your verified academic documents.</p>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; display: block; margin-bottom: 8px; font-size: 14px;">Upload Additional Files (Optional):</label>
+                        <input type="file" style="padding: 12px; background: white; border: 1px solid var(--border-color); border-radius: 8px; width: 100%; box-sizing: border-box;">
+                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.4;">Your verified transcript and resume from your profile will be automatically attached.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <label style="font-weight: 600; display: block; margin-bottom: 8px; font-size: 14px;">Note to Employer (Optional):</label>
+                        <textarea rows="5" placeholder="Briefly explain why you are a great fit for this role..." style="padding: 12px; width: 100%; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 14px; box-sizing: border-box; resize: vertical;"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 16px; cursor: pointer; border: none; border-radius: 8px;">Submit Application</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

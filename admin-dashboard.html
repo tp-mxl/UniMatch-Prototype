@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - UniMatch</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Styles specific to the Admin Dashboard */
+        .admin-header-text p {
+            color: var(--text-muted); 
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .admin-badge {
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            background: white; 
+            padding: 6px 16px; 
+            border-radius: 99px; 
+            border: 1px solid #FECACA; 
+            cursor: pointer; 
+            box-shadow: 0 2px 5px rgba(239, 68, 68, 0.05);
+        }
+
+        .admin-badge-icon {
+            width: 32px; 
+            height: 32px; 
+            background: var(--danger-red); 
+            border-radius: 50%; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 24px; 
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg); 
+            padding: 24px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(226, 232, 240, 0.5); 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .stat-title {
+            color: var(--text-muted); 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 28px; 
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Specific Table Overrides */
+        .table-card {
+            padding: 0; 
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 24px 30px; 
+            border-bottom: 1px solid var(--border-color); 
+            background-color: #FAFAF9;
+        }
+
+        .entity-icon {
+            background: #F1F5F9; 
+            padding: 6px; 
+            border-radius: 6px; 
+            font-size: 12px;
+        }
+
+        .btn-sm {
+            padding: 8px 16px; 
+            font-size: 12px; 
+            border-radius: 6px;
+        }
+
+        /* Added simple outline style for the new view buttons */
+        .btn-outline-sm {
+            padding: 8px 16px; 
+            font-size: 12px; 
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-outline-sm:hover {
+            background: var(--bg-color);
+        }
+
+        /* Adds consistent padding to the edges of the table */
+        .admin-table th:first-child, .admin-table td:first-child { padding-left: 30px; }
+        .admin-table th:last-child, .admin-table td:last-child { padding-right: 30px; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar"> 
+            <h2>Uni<span>Match</span> Admin</h2>
+            <a href="admin-dashboard.html" class="active">Moderation Queue</a>
+            <a href="user-management.html">User Management</a>
+            <a href="system-logs.html">System Logs</a>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <div class="admin-header-text">
+                    <h1 style="margin: 0;">Global Moderation</h1>
+                    <p>System Administrator Dashboard</p>
+                </div>
+                
+                <div class="admin-badge">
+                    <div class="admin-badge-icon">SA</div>
+                    <span style="font-weight: 600; font-size: 14px; color: var(--danger-red);">Admin Privileges Active</span>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-title">Pending Reports</p>
+                    <div style="display: flex; align-items: baseline; gap: 10px; margin-top: 8px;">
+                        <span class="stat-value">12</span>
+                        <span style="color: var(--danger-red); font-size: 13px; font-weight: 500;">+3 today</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <p class="stat-title">Active Users</p>
+                    <div style="display: flex; align-items: baseline; gap: 10px; margin-top: 8px;">
+                        <span class="stat-value">1,492</span>
+                        <span style="color: var(--success-green); font-size: 13px; font-weight: 500;">+12% this week</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <p class="stat-title">System Status</p>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px;">
+                        <div style="width: 10px; height: 10px; background: var(--success-green); border-radius: 50%; box-shadow: 0 0 0 4px var(--success-bg);"></div>
+                        <span style="font-size: 18px; color: var(--text-main); font-weight: 600;">All Systems Operational</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card table-card">
+                <div class="table-header">
+                    <h2 style="font-size: 18px; margin-bottom: 5px;">Flagged Content Queue</h2>
+                    <p style="color: var(--text-muted); font-size: 14px;">Review and manage platform violations below.</p>
+                </div>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Report ID</th>
+                            <th>Target Entity</th>
+                            <th>Violation Reason</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 600; color: var(--text-main);">#99203</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="entity-icon">🏢</span>
+                                    <div>
+                                        <div style="font-weight: 500;">Job Posting</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">ScamCorp LLC</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="color: var(--text-muted);">Spam / Fraudulent Listing</td>
+                            <td><span class="badge badge-danger">Pending Review</span></td>
+                            <td>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="post-details.html" class="btn-outline-sm">View Post</a>
+                                    <button class="btn btn-danger btn-sm">Delete Post</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600; color: var(--text-main);">#99202</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="entity-icon">👤</span>
+                                    <div>
+                                        <div style="font-weight: 500;">User Profile</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">Alex B. (Student)</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="color: var(--text-muted);">Inappropriate Avatar Image</td>
+                            <td><span class="badge badge-danger">Pending Review</span></td>
+                            <td>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="user-details.html" class="btn-outline-sm">View User</a>
+                                    <button class="btn btn-danger btn-sm">Ban User</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600; color: var(--text-muted);">#99198</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="entity-icon" style="opacity: 0.6;">🏢</span>
+                                    <div style="opacity: 0.6;">
+                                        <div style="font-weight: 500;">Job Posting</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">TechFlow Inc.</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="color: var(--text-muted);">Discriminatory Language</td>
+                            <td><span class="badge badge-success">Resolved</span></td>
+                            <td>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="post-details.html" class="btn-outline-sm">View Post</a>
+                                    <button class="btn btn-sm" disabled style="background: #F1F5F9; color: #94A3B8; cursor: not-allowed; border: 1px solid #E2E8F0;">Archived</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

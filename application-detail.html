@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styles */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-purple); }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+        
+        .header-section { margin-bottom: 30px; }
+        .header-section h1 { margin: 0 0 5px 0; font-size: 24px; }
+        .header-section p { color: var(--text-muted); margin: 0; font-size: 14px; }
+
+        /* Status Pipeline Styles */
+        .pipeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+        .pipeline::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+        .step {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 80px;
+            text-align: center;
+        }
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Completed Step */
+        .step.completed .step-icon {
+            background: var(--success-green);
+            border-color: var(--success-green);
+            color: white;
+        }
+        .step.completed { color: var(--success-green); }
+
+        /* Active Step */
+        .step.active .step-icon {
+            background: var(--primary-purple);
+            border-color: var(--primary-purple);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.2);
+        }
+        .step.active { color: var(--primary-purple); }
+
+        .alert-box {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #B45309;
+            padding: 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .document-item:last-child { margin-bottom: 0; }
+        
+        .card-header {
+            margin-top: 0; 
+            font-size: 18px; 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="student-dashboard.html">Dashboard</a>
+                <a href="student-tracker.html" class="active">Application Tracker</a>
+                <a href="internship-search.html">Internship Search</a>
+                <a href="student-profile.html">Profile & Documents</a>
+                <a href="notifications.html">Notifications <span style="background: var(--danger-red); color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <a href="student-tracker.html" class="back-link">← Back to Tracker</a>
+
+            <div class="header-section">
+                <h1>Software Engineering Intern</h1>
+                <p>TechCorp Inc. • Applied: Mar 15, 2026</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="left-column">
+                    <div class="card">
+                        <h2 class="card-header">Application Status</h2>
+                        
+                        <div class="pipeline">
+                            <div class="step completed">
+                                <div class="step-icon">✓</div>
+                                Applied
+                            </div>
+                            <div class="step completed">
+                                <div class="step-icon">✓</div>
+                                Under Review
+                            </div>
+                            <div class="step active">
+                                <div class="step-icon">3</div>
+                                Interview
+                            </div>
+                            <div class="step">
+                                <div class="step-icon">4</div>
+                                Hired
+                            </div>
+                        </div>
+
+                        <div class="alert-box">
+                            <span style="font-size: 20px;">📅</span> 
+                            Technical Interview on Friday, April 10th at 10:00 AM
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2 class="card-header">Job Description Summary</h2>
+                        <p style="color: var(--text-muted); line-height: 1.6;">
+                            TechCorp is looking for a passionate Software Engineering Intern to join our core product team. You will be working directly with senior engineers to build out scalable APIs using Node.js and React.
+                        </p>
+                        <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.6; margin-top: 10px;">
+                            <li>Location: Bangkok, Thailand (Hybrid)</li>
+                            <li>Duration: 3 Months (Summer 2026)</li>
+                            <li>Compensation: 15,000 THB / Month</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="card">
+                        <h2 class="card-header">Submitted Materials</h2>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">These documents were sent to TechCorp Inc. on Mar 15, 2026.</p>
+                        
+                        <div class="document-item">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 20px;">📄</span>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 14px; color: var(--text-main);">John_Doe_Resume.pdf</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">1.2 MB</div>
+                                </div>
+                            </div>
+                            <a href="#" style="color: var(--primary-purple); text-decoration: none; font-size: 14px; font-weight: 600;">View</a>
+                        </div>
+
+                        <div class="document-item">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 20px;">🎓</span>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 14px; color: var(--text-main);">Official_Transcript.pdf</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">3.4 MB</div>
+                                </div>
+                            </div>
+                            <a href="#" style="color: var(--primary-purple); text-decoration: none; font-size: 14px; font-weight: 600;">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

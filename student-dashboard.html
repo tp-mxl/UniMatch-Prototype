@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="student-dashboard.html" class="active">Dashboard</a>
+                <a href="student-tracker.html">Application Tracker</a>
+                <a href="internship-search.html">Internship Search</a>
+                <a href="student-profile.html">Profile & Documents</a>
+                <a href="notifications.html">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div>
+                    <h1>Student Dashboard</h1>
+                    <p style="color: var(--text-muted); margin-top: 5px;">Here is what's happening with your internship search.</p>
+                </div>
+                <div class="user-profile">👋 Welcome, Thanutch</div>
+            </header>
+
+            <h2 style="margin-bottom: 20px; font-size: 18px;">Action Required</h2>
+            <div class="card" style="border-left: 4px solid var(--warning-orange);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <h2 style="font-size: 20px;">TechCorp Inc.</h2>
+                        <p style="color: var(--text-muted); margin-top: 6px;">Software Engineering Intern</p>
+                    </div>
+                    <span class="badge" style="background: #FEF3C7; color: #B45309;">Interview Scheduled</span>
+                </div>
+                
+                <div class="tracker-container">
+                    <div class="tracker-line"></div>
+                    <div class="tracker">
+                        <div class="tracker-step completed">
+                            <div class="tracker-icon">✓</div>
+                            Applied
+                        </div>
+                        <div class="tracker-step completed">
+                            <div class="tracker-icon">✓</div>
+                            Under Review
+                        </div>
+                        <div class="tracker-step active" style="color: var(--warning-orange);">
+                            <div class="tracker-icon" style="background: var(--warning-orange); box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);">3</div>
+                            Interview
+                        </div>
+                        <div class="tracker-step">
+                            <div class="tracker-icon">4</div>
+                            Hired
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #F8FAFC; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; font-weight: 500;">📅 Technical Interview on Friday, April 10th at 10:00 AM</span>
+                    <button class="btn btn-outline" style="padding: 8px 16px; border: 1px solid var(--border-color); background: white; cursor: pointer; border-radius: 6px;">Join Meeting</button>
+                </div>
+            </div>
+
+            <h2 style="margin: 40px 0 20px 0; font-size: 18px;">Recommended Internships</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Data Analyst Intern</h3>
+                    <p style="color: var(--text-muted); margin: 10px 0 20px 0;">DataFlow Systems • Bangkok</p>
+                    <button class="btn btn-primary">View Details</button>
+                </div>
+                <div class="card">
+                    <h3>Frontend Developer</h3>
+                    <p style="color: var(--text-muted); margin: 10px 0 20px 0;">Webify Startup • Remote</p>
+                    <button class="btn btn-primary">View Details</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

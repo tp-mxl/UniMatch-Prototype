@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Logs - UniMatch Admin</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Shared Admin Dashboard Styles */
+        .admin-header-text p {
+            color: var(--text-muted); 
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .admin-badge {
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            background: white; 
+            padding: 6px 16px; 
+            border-radius: 99px; 
+            border: 1px solid #FECACA; 
+            cursor: pointer; 
+            box-shadow: 0 2px 5px rgba(239, 68, 68, 0.05);
+        }
+
+        .admin-badge-icon {
+            width: 32px; 
+            height: 32px; 
+            background: var(--danger-red); 
+            border-radius: 50%; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 14px;
+        }
+
+        /* Specific Table Overrides */
+        .table-card {
+            padding: 0; 
+            overflow: hidden;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-header {
+            padding: 24px 30px; 
+            border-bottom: 1px solid var(--border-color); 
+            background-color: #FAFAF9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-bar {
+            padding: 10px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            width: 250px;
+            outline: none;
+        }
+        .search-bar:focus { border-color: var(--primary-purple); }
+
+        .filter-select {
+            padding: 10px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        /* Admin table base styling */
+        .admin-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .admin-table th { padding: 16px; color: var(--text-muted); font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--border-color); background: white; }
+        .admin-table td { padding: 16px; font-size: 14px; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+        .admin-table tbody tr:hover { background-color: #FAFAF9; }
+        
+        .admin-table th:first-child, .admin-table td:first-child { padding-left: 30px; }
+        .admin-table th:last-child, .admin-table td:last-child { padding-right: 30px; }
+
+        /* Log-specific styling */
+        .log-timestamp { font-family: 'Courier New', Courier, monospace; font-size: 13px; color: var(--text-muted); }
+        .log-source { font-family: 'Courier New', Courier, monospace; font-size: 12px; background: var(--bg-color); padding: 4px 8px; border-radius: 4px; color: #475569; }
+        
+        .badge-info { background: #E0F2FE; color: #0284C7; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 12px; display: inline-block; width: 60px; text-align: center; }
+        .badge-warning { background: #FEF3C7; color: #D97706; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 12px; display: inline-block; width: 60px; text-align: center; }
+        .badge-error { background: #FEE2E2; color: #DC2626; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 12px; display: inline-block; width: 60px; text-align: center; }
+        
+        .btn-outline-sm {
+            padding: 6px 12px; 
+            font-size: 12px; 
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .btn-outline-sm:hover {
+            background: var(--bg-color, #f1f5f9);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar"> 
+            <h2>Uni<span>Match</span> Admin</h2>
+            <a href="admin-dashboard.html">Moderation Queue</a>
+            <a href="user-management.html">User Management</a>
+            <a href="system-logs.html" class="active">System Logs</a>
+        </nav>
+
+        <main class="main-content">
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+                <div class="admin-header-text">
+                    <h1 style="margin: 0;">System Audit Logs</h1>
+                    <p>System Administrator Dashboard</p>
+                </div>
+                
+                <div class="admin-badge">
+                    <div class="admin-badge-icon">SA</div>
+                    <span style="font-weight: 600; font-size: 14px; color: var(--danger-red);">Admin Privileges Active</span>
+                </div>
+            </header>
+
+            <div class="table-card">
+                <div class="table-header">
+                    <div>
+                        <h2 style="font-size: 18px; margin: 0 0 5px 0;">Live Event Trail</h2>
+                        <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Monitor system activities, errors, and moderation actions.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <select class="filter-select">
+                            <option value="all">Severity: All</option>
+                            <option value="error">Error</option>
+                            <option value="warning">Warning</option>
+                            <option value="info">Info</option>
+                        </select>
+                        <input type="text" class="search-bar" placeholder="Search event, IP, or user ID...">
+                        <button class="btn-outline-sm" style="padding: 10px 16px;">Export CSV</button>
+                    </div>
+                </div>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Level</th>
+                            <th>Event Category</th>
+                            <th>Details / Action</th>
+                            <th>Source IP / Entity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 12:45:02</td>
+                            <td><span class="badge-error">ERROR</span></td>
+                            <td style="font-weight: 600;">Auth_Service</td>
+                            <td style="color: var(--text-main);">Failed to connect to Redis session cache. Retrying...</td>
+                            <td><span class="log-source">SYS_INTERNAL</span></td>
+                        </tr>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 12:30:15</td>
+                            <td><span class="badge-warning">WARN</span></td>
+                            <td style="font-weight: 600;">Security</td>
+                            <td style="color: var(--text-main);">Multiple failed login attempts detected for user alex.b@university.edu. Account temporarily locked.</td>
+                            <td><span class="log-source">192.168.1.104</span></td>
+                        </tr>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 11:15:44</td>
+                            <td><span class="badge-info">INFO</span></td>
+                            <td style="font-weight: 600;">Moderation</td>
+                            <td style="color: var(--text-main);">Admin (Admin_01) successfully deleted fraudulent Job Post #99201.</td>
+                            <td><span class="log-source">10.0.0.45</span></td>
+                        </tr>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 10:00:00</td>
+                            <td><span class="badge-info">INFO</span></td>
+                            <td style="font-weight: 600;">Database</td>
+                            <td style="color: var(--text-main);">Daily automated backup completed successfully. Size: 4.2GB.</td>
+                            <td><span class="log-source">SYS_CRON</span></td>
+                        </tr>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 09:42:11</td>
+                            <td><span class="badge-warning">WARN</span></td>
+                            <td style="font-weight: 600;">API_Gateway</td>
+                            <td style="color: var(--text-main);">Rate limit approaching for Employer ID #4002. (950/1000 requests/hr)</td>
+                            <td><span class="log-source">203.144.15.99</span></td>
+                        </tr>
+                        <tr>
+                            <td class="log-timestamp">2026-04-12 08:15:33</td>
+                            <td><span class="badge-info">INFO</span></td>
+                            <td style="font-weight: 600;">User_Action</td>
+                            <td style="color: var(--text-main);">New user registered: John Doe (Student).</td>
+                            <td><span class="log-source">172.16.254.1</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="padding: 16px 30px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: #FAFAF9;">
+                    <span style="font-size: 13px; color: var(--text-muted);">Showing most recent 6 logs of 24,091 total</span>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-outline-sm" disabled style="opacity: 0.5; cursor: not-allowed;">Newer</button>
+                        <button class="btn-outline-sm">Older</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

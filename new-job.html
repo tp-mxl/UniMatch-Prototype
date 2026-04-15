@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Form-specific styles not covered in style.css */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+        }
+
+        /* Skill Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background: #F3E8FF; 
+            color: var(--primary-purple); 
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-tag button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .card-header {
+            margin-top: 0; 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 12px; 
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-size: 18px;
+        }
+
+        /* Custom Outline Button for forms */
+        .btn-outline {
+            background: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+        .btn-outline:hover {
+            background: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="employer-dashboard.html">Applicant Tracking</a>
+                <a href="post-job.html" class="active">Job Postings</a>
+                <a href="company-profile.html">Company Profile</a>
+            </nav>
+            <div style="padding: 24px; text-align: center; color: var(--sidebar-text); font-size: 13px; margin-top: auto;">
+                Plan: Enterprise
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div>
+                    <a href="post-job.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 8px;">← Back to Job Postings</a>
+                    <h1>Post a New Internship</h1>
+                    <p style="margin: 5px 0 0 0; color: var(--text-muted);">Create a detailed listing to find the perfect candidates.</p>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-outline">Save Draft</button>
+                    <button class="btn btn-primary">Publish Job</button>
+                </div>
+            </header>
+
+            <form action="post-job.html">
+                <div class="card">
+                    <h3 class="card-header">Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" placeholder="e.g., Frontend Development Intern" required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Work Arrangement</label>
+                            <select>
+                                <option>On-site</option>
+                                <option>Hybrid</option>
+                                <option>Fully Remote</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" placeholder="e.g., Bangkok, Thailand" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration / Term</label>
+                            <select>
+                                <option>Summer (2-3 Months)</option>
+                                <option>Fall Semester</option>
+                                <option>Spring Semester</option>
+                                <option>6 Months Co-op</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Compensation</label>
+                            <select>
+                                <option>Paid (Hourly/Stipend)</option>
+                                <option>Unpaid (Academic Credit)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-header">Match Requirements</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px;">These criteria will be used to calculate the Match % with student profiles.</p>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Target Majors (Optional)</label>
+                            <input type="text" placeholder="e.g., Computer Science, IT">
+                        </div>
+                        <div class="form-group">
+                            <label>Minimum GPA (Optional)</label>
+                            <input type="number" step="0.1" min="0" max="4.0" placeholder="e.g., 3.0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Technical Skills</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" placeholder="Type a skill and click Add..." style="flex: 1;">
+                            <button type="button" class="btn btn-primary" style="padding: 0 20px; background: var(--text-main); box-shadow: none;">Add</button>
+                        </div>
+                        <div class="skills-container">
+                            <span class="skill-tag">JavaScript <button type="button">×</button></span>
+                            <span class="skill-tag">React <button type="button">×</button></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-header">Job Description</h3>
+                    
+                    <div class="form-group">
+                        <label>Role Summary & Responsibilities</label>
+                        <textarea rows="6" placeholder="Describe what the intern will be doing on a day-to-day basis..." required></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>What You'll Learn / Benefits</label>
+                        <textarea rows="4" placeholder="Highlight mentorship, projects, and perks..."></textarea>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

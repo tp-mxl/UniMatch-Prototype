@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Tracker - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Tracker-specific internal styles */
+        .filter-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .filter-tab {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .filter-tab.active {
+            background: var(--primary-purple);
+            color: white;
+        }
+        .filter-tab:hover:not(.active) {
+            background: #F1F5F9;
+        }
+        
+        .application-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .application-list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .app-info h3 { margin-bottom: 5px; font-size: 16px; }
+        .app-meta { font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="student-dashboard.html">Dashboard</a>
+                <a href="student-tracker.html" class="active">Application Tracker</a>
+                <a href="internship-search.html">Internship Search</a>
+                <a href="student-profile.html">Profile & Documents</a>
+                <a href="notifications.html">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div>
+                    <h1>Application Tracker</h1>
+                    <p style="color: var(--text-muted); margin-top: 5px;">Manage and track all your internship applications.</p>
+                </div>
+                <button class="btn btn-primary" onclick="window.location.href='internship-search.html'">Find More Jobs</button>
+            </header>
+
+            <div class="card">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterApplications('all', this)">All Applications (4)</button>
+                    <button class="filter-tab" onclick="filterApplications('active', this)">Active (2)</button>
+                    <button class="filter-tab" onclick="filterApplications('interview', this)">Interviews (1)</button>
+                    <button class="filter-tab" onclick="filterApplications('archived', this)">Archived (1)</button>
+                </div>
+
+                <div class="application-list-item" data-status="interview">
+                    <div class="app-info">
+                        <h3>Software Engineering Intern</h3>
+                        <div class="app-meta">TechCorp Inc. • Applied: Mar 15, 2026</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span class="badge" style="background: #FEF3C7; color: #B45309;">Interview Scheduled</span>
+                        <button class="btn btn-outline" onclick="window.location.href='application-detail.html'">View Details</button>
+                    </div>
+                </div>
+
+                <div class="application-list-item" data-status="active">
+                    <div class="app-info">
+                        <h3>UX/UI Design Intern</h3>
+                        <div class="app-meta">Creative Studio BKK • Applied: Mar 28, 2026</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span class="badge badge-success" style="background: #E0E7FF; color: #4338CA;">Under Review</span>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="application-list-item" data-status="active">
+                    <div class="app-info">
+                        <h3>Data Science Co-op</h3>
+                        <div class="app-meta">FinTech Solutions • Applied: Apr 1, 2026</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span class="badge" style="background: #F1F5F9; color: #475569;">Application Submitted</span>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="application-list-item" data-status="archived">
+                    <div class="app-info">
+                        <h3>Marketing Intern</h3>
+                        <div class="app-meta">Global Brands LLC • Applied: Feb 10, 2026</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span class="badge badge-danger">Not Selected</span>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function filterApplications(status, clickedTab) {
+            // 1. Update the active styling on the tabs
+            const allTabs = document.querySelectorAll('.filter-tab');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            clickedTab.classList.add('active');
+
+            // 2. Loop through applications and show/hide based on data-status
+            const applications = document.querySelectorAll('.application-list-item');
+            applications.forEach(app => {
+                // If 'all' is selected, or if the item's status matches the clicked filter
+                if (status === 'all' || app.getAttribute('data-status') === status) {
+                    app.style.display = 'flex'; // We use flex to maintain your layout
+                } else {
+                    app.style.display = 'none'; // Hide the item
+                }
+            });
+        }
+    </script>
+</body>
+</html>

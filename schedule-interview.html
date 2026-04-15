@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Interview - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Specific Styles for Scheduling Page */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: white;
+            font-size: 14px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-control:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Candidate Summary Card Elements */
+        .avatar-md {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+            background: #E0E7FF; 
+            color: #4338CA;
+        }
+
+        .invite-preview {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .btn-outline:hover {
+            background: var(--bg-color);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="employer-dashboard.html" class="active">Applicant Tracking</a>
+                <a href="post-job.html">Job Postings</a>
+                <a href="company-profile.html">Company Profile</a>
+            </nav>
+            <div style="padding: 24px; text-align: center; color: var(--text-muted); font-size: 13px;">
+                Plan: Enterprise
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <a href="employer-dashboard.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Tracking
+            </a>
+
+            <header style="margin-bottom: 30px;">
+                <h1>Schedule Interview</h1>
+                <div class="user-profile">
+                    👋 Welcome, Sarah Jenkins
+                </div>
+            </header>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-bottom: 24px; font-size: 18px;">Meeting Details</h3>
+                    
+                    <form action="employer.html">
+                        <div class="form-group">
+                            <label class="form-label">Interview Title</label>
+                            <input type="text" class="form-control" value="Technical Interview - Software Engineering Intern">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Time</label>
+                                <input type="time" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Duration</label>
+                                <select class="form-control">
+                                    <option>30 Minutes</option>
+                                    <option selected>45 Minutes</option>
+                                    <option>1 Hour</option>
+                                    <option>1.5 Hours</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Format / Platform</label>
+                                <select class="form-control">
+                                    <option selected>Google Meet (Auto-generate)</option>
+                                    <option>Zoom Video</option>
+                                    <option>Microsoft Teams</option>
+                                    <option>In-Person (Office)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Meeting URL (Optional)</label>
+                            <input type="url" class="form-control" placeholder="e.g., https://zoom.us/j/123456789 (Leave blank to auto-generate)">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Interviewers (Optional)</label>
+                            <input type="text" class="form-control" placeholder="e.g. mark.davis@company.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message to Candidate</label>
+                            <textarea class="form-control" placeholder="Add any specific instructions or let them know what to expect...">Hi John, we were really impressed with your application and would love to schedule a technical interview to discuss your experience with React and Node.js.</textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="window.location.href='employer-dashboard.html'">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Send Invitation</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div>
+                    <div class="card" style="border-top: 4px solid var(--primary-purple);">
+                        <h3 style="margin-bottom: 20px; font-size: 15px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Scheduling With</h3>
+                        
+                        <div style="display: flex; gap: 16px; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <div class="avatar-md">JD</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 18px; color: var(--text-main);">John Doe</div>
+                                <div style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Software Engineering Intern (SE-24)</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <span class="badge badge-success" style="margin-bottom: 12px;">✨ 98% Match</span>
+                            <div style="font-size: 14px; color: var(--text-main); line-height: 1.6;">
+                                <strong>B.S. Computer Science</strong><br>
+                                <span style="color: var(--text-muted);">Thammasat University • GPA: 3.8</span>
+                            </div>
+                        </div>
+
+                        <div class="invite-preview">
+                            <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase;">Invitation Preview</div>
+                            
+                            <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
+                                <div style="background: white; border: 1px solid var(--border-color); border-radius: 6px; padding: 4px; text-align: center; min-width: 45px;">
+                                    <div style="font-size: 10px; color: var(--danger-red); font-weight: 700; text-transform: uppercase;">Date</div>
+                                    <div style="font-size: 16px; font-weight: 700; color: var(--text-main);">TBD</div>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 14px; color: var(--text-main);">Technical Interview - Software Engineering Intern</div>
+                                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">📹 Video meeting info included</div>
+                                </div>
+                            </div>
+                            
+                            <div style="font-size: 13px; color: var(--text-muted); background: white; padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                                <em>"Hi John, we were really impressed with your application and would love to schedule a technical interview..."</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>

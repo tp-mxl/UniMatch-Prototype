@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Details #99201 - UniMatch Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-purple); }
+
+        .report-header-card {
+            background: #FEF2F2; /* Light red tint for warning */
+            border: 1px solid #FECACA;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .snapshot-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            border: 2px dashed var(--border-color); /* Dashed to show it's a preview */
+            margin-bottom: 30px;
+        }
+
+        .snapshot-label {
+            display: inline-block;
+            background: var(--bg-color);
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-danger {
+            background: var(--danger-red, #ef4444);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn-danger:hover { background: #dc2626; }
+        
+        .btn-outline {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn-outline:hover { background: var(--bg-color); }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar"> 
+            <h2>Uni<span>Match</span> Admin</h2>
+            <a href="admin-dashboard.html" class="active">Moderation Queue</a>
+            <a href="user-management.html">User Management</a>
+            <a href="system-logs.html">System Logs</a>
+        </nav>
+
+        <main class="main-content">
+            <a href="admin-dashboard.html" class="back-link">← Back to Moderation Queue</a>
+
+            <div class="report-header-card">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                        <h1 style="margin: 0; font-size: 24px; color: #991B1B;">Report #99203</h1>
+                        <span class="badge" style="background: #FEE2E2; color: #991B1B; font-weight: 600; padding: 4px 10px; border-radius: 12px; font-size: 12px;">Pending Review</span>
+                    </div>
+                    <p style="margin: 0; color: #7F1D1D; font-size: 15px;"><strong>Violation Reason:</strong> Spam / Fraudulent Listing</p>
+                    <p style="margin: 4px 0 0 0; color: #991B1B; font-size: 13px;">Reported by 3 separate users today.</p>
+                </div>
+            </div>
+
+            <div class="snapshot-card">
+                <span class="snapshot-label">Content Snapshot (Reported Posting)</span>
+                
+                <h2 style="margin: 0 0 8px 0; font-size: 24px; color: var(--text-main);">Data Entry Clerk - FAST MONEY GUARANTEED 💰💸</h2>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">ScamCorp LLC • Remote</p>
+                
+                <h3 style="font-size: 16px; margin-bottom: 12px;">Job Description</h3>
+                <p style="color: var(--text-main); line-height: 1.6; padding: 16px; background: var(--bg-color); border-radius: 8px;">
+                    Make $500 an hour working from your couch! No experience needed. Just pay a small $50 onboarding fee for your starter kit and you can start typing immediately. 
+                    <br><br>
+                    CLICK THIS LINK TO APPLY OUTSIDE OF UNIMATCH: http://totally-legit-jobs-123.biz/apply-now
+                </p>
+            </div>
+
+            <div class="action-bar">
+                <button class="btn-outline">Dismiss Report</button>
+                <button class="btn-danger">Delete Post & Warn Employer</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

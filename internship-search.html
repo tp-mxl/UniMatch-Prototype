@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Search - UniMatch</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Only styles specific to the Internship Search page remain here */
+        .search-section { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(226, 232, 240, 0.5); 
+        }
+        
+        .search-bar-container { 
+            display: flex; 
+            gap: 16px; 
+            max-width: 800px; 
+            margin-top: 20px;
+        }
+        
+        .search-input { 
+            flex: 1; 
+            padding: 12px 16px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            font-size: 15px; 
+            outline: none; 
+            transition: 0.2s; 
+        }
+        
+        .search-input:focus { 
+            border-color: var(--primary-purple); 
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1); 
+        }
+        
+        .filter-select { 
+            padding: 12px 16px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            font-size: 14px; 
+            font-weight: 500; 
+            outline: none; 
+            background: white; 
+            cursor: pointer; 
+        }
+        
+        .job-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
+            gap: 24px; 
+        }
+        
+        .job-card { 
+            background: var(--card-bg); 
+            border: 1px solid rgba(226, 232, 240, 0.5); 
+            border-radius: 16px; 
+            padding: 24px 30px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        .job-card:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); 
+        }
+        
+        .company-logo { 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 8px; 
+            background: #F1F5F9; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold; 
+            color: var(--text-muted); 
+            margin-bottom: 16px; 
+        }
+        
+        .job-title { font-size: 18px; font-weight: 700; margin: 0 0 8px 0; color: var(--text-main); }
+        .company-info { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        
+        .match-pill { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 4px; 
+            padding: 4px 10px; 
+            border-radius: 99px; 
+            font-size: 12px; 
+            font-weight: 700; 
+            background-color: var(--success-bg); 
+            color: #047857; 
+            margin-bottom: 16px; 
+            width: fit-content; 
+        }
+        
+        .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+        .tag { background: #F8FAFC; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="student-tracker.html">Application Tracker</a>
+            <a href="internship-search.html" class="active">Internship Search</a>
+            <a href="student-profile.html">Profile & Documents</a>
+            <a href="notifications.html">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1>Internships Search</h1>
+                <div class="user-profile">👋 Welcome, Thanutch</div>
+            </header>
+
+            <div class="search-section">
+                <h2 style="font-size: 20px;">Find your perfect match</h2>
+                <div class="search-bar-container">
+                    <input type="text" class="search-input" placeholder="Search by role, company, or skills...">
+                    <select class="filter-select">
+                        <option>Location: Bangkok</option>
+                        <option>Location: Remote</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Role: Software Eng</option>
+                        <option>Role: Data Science</option>
+                    </select>
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="font-size: 20px;">Recommended for You</h2>
+                    <span style="color: var(--text-muted); font-size: 14px; font-weight: 500;">Showing 24 results</span>
+                </div>
+
+                <div class="job-grid">
+                    <div class="job-card">
+                        <div class="company-logo" style="background: #EEF2FF; color: var(--primary-purple);">GF</div>
+                        <h3 class="job-title">Software Engineering Intern</h3>
+                        <div class="company-info">Gofive Company Limited • Bangkok • On-site</div>
+                        <div class="match-pill">✨ 98% Match</div>
+                        <div class="skill-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                        <a href="job-details.html" class="btn btn-primary" style="margin-top: auto; text-decoration: none;">View Details</a>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="company-logo">DF</div>
+                        <h3 class="job-title">Data Analyst Intern</h3>
+                        <div class="company-info">DataFlow Systems • Remote</div>
+                        <div class="match-pill" style="background: #FEF3C7; color: #B45309;">⚡ 85% Match</div>
+                        <div class="skill-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Tableau</span>
+                        </div>
+                        <button class="btn" style="margin-top: auto; background: white; color: var(--text-main); border: 1px solid var(--border-color);">View Details</button>
+                    </div>
+
+                     <div class="job-card">
+                        <div class="company-logo" style="background: var(--success-bg); color: #16A34A;">ES</div>
+                        <h3 class="job-title">Frontend Developer Intern</h3>
+                        <div class="company-info">EcoStartups • Bangkok • Hybrid</div>
+                        <div class="match-pill" style="background: #FEF3C7; color: #B45309;">⚡ 82% Match</div>
+                        <div class="skill-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                        <button class="btn" style="margin-top: auto; background: white; color: var(--text-main); border: 1px solid var(--border-color);">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

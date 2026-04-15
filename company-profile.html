@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .logo-upload {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+        }
+        .logo-upload:hover {
+            border-color: #7c3aed;
+            color: #7c3aed;
+            background: #f3e8ff;
+        }
+
+        /* Active Jobs List */
+        .job-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .job-list-item:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+        }
+        .job-status {
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <nav style="display: flex; flex-direction: column; flex: 1;">
+                <a href="employer-dashboard.html" >Applicant Tracking</a>
+                <a href="post-job.html">Job Postings</a>
+                <a href="company-profile.html" class="active">Company Profile</a>
+            </nav>
+            <div style="padding: 24px; text-align: center; color: var(--text-muted); font-size: 13px;">
+                Plan: Enterprise
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <div>
+                    <h1 style="margin: 0; font-size: 28px; color: #0f172a;">Company Profile</h1>
+                    <p style="margin: 5px 0 0 0; color: #64748b;">Manage how students see your company on UniMatch.</p>
+                </div>
+                <button class="btn-primary" style="background: #7c3aed; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Save Profile</button>
+            </header>
+
+            <div class="card" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 24px;">
+                <div class="company-header">
+                    <div class="logo-upload">
+                        Upload<br>Logo
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Company Name</label>
+                            <input type="text" value="TechCorp Inc." style="font-size: 18px; font-weight: 600;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="form-group">
+                        <label>Company Website</label>
+                        <input type="url" value="https://www.techcorp.example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Industry</label>
+                        <select>
+                            <option>Information Technology</option>
+                            <option>Finance & Banking</option>
+                            <option>Healthcare</option>
+                            <option>E-commerce</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Company Size</label>
+                        <select>
+                            <option>Startup (1-50 employees)</option>
+                            <option selected>Mid-size (51-200 employees)</option>
+                            <option>Enterprise (201+ employees)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Location (HQ)</label>
+                        <input type="text" value="Bangkok, Thailand">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>About the Company & Culture</label>
+                    <textarea rows="4" placeholder="Tell students what makes your company a great place to work...">TechCorp Inc. is a leading software solutions provider. We believe in fostering young talent and providing hands-on experience with modern tech stacks. Our culture is fast-paced, highly collaborative, and deeply values continuous learning.</textarea>
+                </div>
+            </div>
+
+            <div class="card" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                    <h3 style="margin: 0;">Active Job Postings</h3>
+                    <a href="post-job.html" style="color: #7c3aed; text-decoration: none; font-weight: 600; font-size: 14px;">+ Post New Job</a>
+                </div>
+                
+                <div class="job-list-item">
+                    <div>
+                        <h4 style="margin: 0 0 4px 0; color: #0f172a;">Software Engineering Intern</h4>
+                        <p style="margin: 0; font-size: 13px; color: #64748b;">React, Node.js • Summer 2026 • 12 Applicants</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <span class="job-status">Active</span>
+                        <button style="background: none; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; color: #475569;">Manage</button>
+                    </div>
+                </div>
+
+                <div class="job-list-item">
+                    <div>
+                        <h4 style="margin: 0 0 4px 0; color: #0f172a;">Data Analyst Intern</h4>
+                        <p style="margin: 0; font-size: 13px; color: #64748b;">Python, SQL • Fall 2026 • 5 Applicants</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <span class="job-status">Active</span>
+                        <button style="background: none; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; color: #475569;">Manage</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

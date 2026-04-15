@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .notif-card { display: flex; align-items: flex-start; gap: 16px; padding: 20px; border-bottom: 1px solid #e2e8f0; }
+        .notif-card:last-child { border-bottom: none; }
+        .notif-card.unread { background-color: #f8fafc; border-left: 4px solid #7c3aed; }
+        .notif-icon { font-size: 24px; background: #f1f5f9; padding: 12px; border-radius: 50%; }
+        .notif-content { flex: 1; }
+        .notif-content h4 { margin: 0 0 4px 0; color: #0f172a; }
+        .notif-content p { margin: 0; color: #475569; font-size: 14px; }
+        .notif-time { font-size: 12px; color: #94a3b8; margin-top: 8px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <h2 style="color: #ffffff !important; background: none !important; -webkit-text-fill-color: initial !important;">
+                Uni<span style="color: #8b5cf6 !important;">Match</span>
+            </h2>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="student-tracker.html">Application Tracker</a>
+            <a href="internship-search.html">Internship Search</a>
+            <a href="student-profile.html">Profile & Documents</a>
+            <a href="notifications.html" class="active">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+        </nav>
+        <main class="main-content">
+            <header style="margin-bottom: 30px;">
+                <h1 style="margin: 0; font-size: 28px; color: #0f172a;">Notifications</h1>
+                <p style="margin: 5px 0 0 0; color: #64748b;">Stay updated on your application statuses.</p>
+            </header>
+            <div class="card" style="background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 0;">
+                <div class="notif-card unread">
+                    <div class="notif-icon">🎉</div>
+                    <div class="notif-content">
+                        <h4>Interview Request: TechCorp Inc.</h4>
+                        <p>TechCorp Inc. has reviewed your profile for the Software Engineering Intern role and would like to schedule an interview.</p>
+                        <span class="notif-time">2 hours ago</span>
+                    </div>
+                    <button style="background: #7c3aed; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">View Message</button>
+                </div>
+                <div class="notif-card unread">
+                    <div class="notif-icon">👀</div>
+                    <div class="notif-content">
+                        <h4>Application Viewed</h4>
+                        <p>DataWorks Ltd. has viewed your application for Data Analyst Intern.</p>
+                        <span class="notif-time">Yesterday</span>
+                    </div>
+                    <button style="background: #7c3aed; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">View Message</button>
+                </div>
+                <div class="notif-card">
+                    <div class="notif-icon">✅</div>
+                    <div class="notif-content">
+                        <h4>Profile Match Alert</h4>
+                        <p>You have a 95% match for a new listing: Frontend Developer at StartupX. Check it out!</p>
+                        <span class="notif-time">3 days ago</span>
+                    </div>
+                    <button style="background: #7c3aed; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">View Message</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - UniMatch</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Inter, Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        /* Navbar matching index.html */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+            padding: 0 40px;
+            background: #0f172a; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        
+        .logo span { color: #8b5cf6; }
+
+        /* Auth specific styles */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 70px);
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-card h2 {
+            margin-top: 0;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #475569;
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+
+        /* Role Toggle Switch */
+        .role-toggle {
+            display: flex;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .role-toggle input[type="radio"] {
+            display: none;
+        }
+        
+        .role-label {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        /* When radio is checked, style the label immediately following it */
+        .role-toggle input[type="radio"]:checked + .role-label {
+            background: white;
+            color: #7c3aed;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 14px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+            box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
+        }
+
+        .btn-full:hover {
+            background: #6d28d9;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .auth-footer a {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .auth-footer a:hover { text-decoration: underline; }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Uni<span>Match</span></a>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Welcome back</h2>
+            <p class="subtitle">Log in to your UniMatch account.</p>
+            
+            <form id="loginForm">
+                
+                <div class="role-toggle">
+                    <input type="radio" id="role-student" name="account-role" value="student" checked>
+                    <label for="role-student" class="role-label">Student</label>
+                    
+                    <input type="radio" id="role-employer" name="account-role" value="employer">
+                    <label for="role-employer" class="role-label">Employer</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@university.edu" required>
+                </div>
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label for="password" style="margin-bottom: 0;">Password</label>
+                        <a href="forgot-password.html" style="font-size: 13px; color: #7c3aed; text-decoration: none; font-weight: 600;">Forgot password?</a>
+                    </div>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-full">Log In</button>
+            </form>
+            
+            <div class="auth-footer">
+                Don't have an account? <a href="register.html">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Check if the Student radio button is selected
+            const isStudent = document.getElementById('role-student').checked;
+
+            // Route to the appropriate dashboard
+            if (isStudent) {
+                window.location.href = 'student-dashboard.html';
+            } else {
+                window.location.href = 'employer-dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

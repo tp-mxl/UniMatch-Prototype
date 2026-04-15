@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - UniMatch</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Only styles specific to the Job Details page remain here */
+        .content-area { 
+            max-width: 900px; 
+            width: 100%; 
+            margin: 0 auto; 
+        }
+        
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px; 
+            margin-bottom: 24px; 
+            transition: 0.2s; 
+        }
+        
+        .back-link:hover { 
+            color: var(--primary-purple); 
+        }
+
+        /* Details Card matching your modern SaaS vibe */
+        .details-card { 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            border: 1px solid rgba(226, 232, 240, 0.5); 
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+        }
+        
+        .card-header { 
+            padding: 32px; 
+            border-bottom: 1px solid var(--border-color); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+        }
+        
+        .company-logo { 
+            width: 64px; 
+            height: 64px; 
+            border-radius: 12px; 
+            background: #EEF2FF; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold; 
+            font-size: 20px; 
+            color: var(--primary-purple); 
+            margin-bottom: 16px; 
+        }
+        
+        .job-title { 
+            font-size: 28px; 
+            font-weight: 800; 
+            margin: 0 0 8px 0; 
+            color: var(--text-main);
+        }
+        
+        .company-info { 
+            font-size: 16px; 
+            color: var(--text-muted); 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        .match-pill { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 4px; 
+            padding: 6px 12px; 
+            border-radius: 99px; 
+            font-size: 14px; 
+            font-weight: 700; 
+            background-color: var(--success-bg); 
+            color: #047857; 
+            border: 1px solid #A7F3D0; 
+        }
+        
+        .card-body { padding: 32px; }
+        
+        .section-title { 
+            font-size: 18px; 
+            font-weight: 700; 
+            margin: 0 0 16px 0; 
+            color: var(--text-main); 
+        }
+        
+        .description-text { 
+            color: var(--text-muted); 
+            line-height: 1.7; 
+            font-size: 15px; 
+            margin-bottom: 32px; 
+        }
+        
+        .requirements-list { 
+            margin: 0 0 32px 0; 
+            padding-left: 20px; 
+            color: var(--text-muted); 
+            line-height: 1.8; 
+            font-size: 15px; 
+        }
+        
+        .requirements-list li::marker { 
+            color: var(--primary-purple); 
+        }
+
+        .apply-box { 
+            background: #F8FAFC; 
+            padding: 24px 32px; 
+            border-top: 1px solid var(--border-color); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <h2>Uni<span>Match</span></h2>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="student-tracker.html">Application Tracker</a>
+            <a href="internship-search.html"  class="active">Internship Search</a>
+            <a href="student-profile.html">Profile & Documents</a>
+            <a href="notifications.html">Notifications <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; float: right;">2</span></a>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1>Internship Details</h1>
+                <div class="user-profile">👋 Welcome, Thanutch</div>
+            </header>
+
+            <div class="content-area">
+                <a href="internship-search.html" class="back-link">← Back to Search</a>
+
+                <div class="details-card">
+                    <div class="card-header">
+                        <div>
+                            <div class="company-logo">GF</div>
+                            <h2 class="job-title">Software Engineering Intern</h2>
+                            <div class="company-info">
+                                <strong>Gofive Company Limited</strong> 
+                                <span>•</span> Bangkok, TH 
+                                <span>•</span> On-site 
+                                <span>•</span> 3 Months
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="match-pill" style="margin-bottom: 12px;">✨ 98% Match</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Posted 2 days ago</div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="section-title">About the Role</h3>
+                        <p class="description-text">
+                            We are looking for a passionate Software Engineering Intern to join our core product team. You will be working directly with senior engineers to build and ship features used by thousands of users daily. This is a hands-on role where you will write production code in React and Node.js.
+                        </p>
+
+                        <h3 class="section-title">Requirements</h3>
+                        <ul class="requirements-list">
+                            <li>Currently pursuing a B.S. in Computer Science or related field.</li>
+                            <li>Strong foundation in JavaScript/TypeScript.</li>
+                            <li>Experience building web applications using React.</li>
+                            <li>Familiarity with REST APIs and backend frameworks (Node.js preferred).</li>
+                            <li>A proactive attitude and eagerness to learn new technologies.</li>
+                        </ul>
+
+                        <h3 class="section-title">Why GoFive?</h3>
+                        <p class="description-text">
+                            We offer a vibrant startup culture with the stability of a profitable enterprise. Interns are treated like full-time employees, given real responsibilities, and provided with continuous mentorship. Plus, we offer free lunches on Fridays!
+                        </p>
+                    </div>
+
+                    <div class="apply-box">
+                        <div>
+                            <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px; color: var(--text-main);">Ready to apply?</div>
+                            <div style="font-size: 14px; color: var(--text-muted);">Your UniMatch profile data will be sent securely to the employer.</div>
+                        </div>
+                        <a href="job-apply.html" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color, #e2e8f0); text-align: center;">
+                <button style="background: transparent; border: none; color: var(--text-muted, #64748b); font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" onmouseover="this.style.color='#ef4444'" onmouseout="this.style.color='#64748b'">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    Report this Listing
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
